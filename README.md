@@ -14,9 +14,16 @@ These URLs are submitted to App Store Connect and the Google Play Console, and a
 
 ## Updating
 
-Edit the HTML, bump the "Last Updated" date in the file header, then commit and push. GitHub Pages redeploys automatically within a minute or two.
+This folder is the source of truth. To publish:
 
-For material changes, also update the effective date and give users notice in-app.
+```bash
+git clone https://github.com/elyorberdiev/eyegym-legal.git /tmp/eyegym-legal
+cp -R legal/. /tmp/eyegym-legal/
+cd /tmp/eyegym-legal && git add -A && git commit -m "Update legal documents" && git push
+```
+
+Bump the "Last Updated" date in the file header before publishing. GitHub Pages redeploys within a
+minute or two. For material changes, also update the effective date and give users notice in-app.
 
 ## Claims that depend on the app's actual behaviour
 
