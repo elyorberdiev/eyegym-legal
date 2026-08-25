@@ -34,11 +34,13 @@ These documents describe what the app does today. If a feature changes, the corr
 | "no registration and no sign-in" | The app stays account-free. Adding Firebase Auth or any login requires rewriting §2 of the Privacy Policy. |
 | "your practice data never leaves the device" | Drift/SQLite stays the only store. Adding cloud sync requires rewriting §3, §6, §8 and §10 of the Terms. |
 | "Firebase Crashlytics and Analytics" | Both are actually shipped in the released build. Remove the rows if they are not. |
-| Analytics event list (`exercise_started`, `exercise_completed`, `premium_purchased`, `review_requested`) | Matches `lib/core/services/analytics_service.dart`. Update §4 when events are added or renamed. |
+| Analytics event list in Privacy §4 | Matches `lib/core/services/analytics_service.dart` exactly, including the parameters named per event. Update §4 in the same change that adds, renames, or removes an event. |
 | "does not request camera, microphone, photo library, location, or contacts" | No such permission is added to `AndroidManifest.xml` / `Info.plist`. |
 | "exact alarms and start on boot" | `USE_EXACT_ALARM` and `RECEIVE_BOOT_COMPLETED` remain in the Android manifest. |
-| "premium is an auto-renewing subscription" | RevenueCat entitlements stay subscription-based. A one-off purchase would change §9 of the Terms. |
-| Photosensitivity warning | Keep it as long as the exercises use moving or flashing visuals — Rive animations qualify. |
+| "premium is an auto-renewing subscription" | RevenueCat entitlements stay subscription-based (weekly + annual). A one-off or lifetime purchase would change Terms §9. |
+| "every exercise in the App is free" (Terms §9.1, Privacy §5) | No exercise ever carries `isPremium: true` in `lib/data/repositories/exercise_repository.dart`, and no route gates one. Gating any exercise requires rewriting Terms §9.1–9.2 and Privacy §5. |
+| The Premium feature list in Terms §9.2 | Matches the shipped entries in `lib/core/constants/premium_features.dart`. A feature advertised there but not built is a store violation — the paywall renders only `isAvailable: true` entries for this reason. |
+| Photosensitivity warning | Keep it as long as the exercises use moving or flashing visuals. The guide is drawn with `CustomPainter` (`lib/features/exercise_player/widgets/`) and qualifies. |
 
 ## Publishing checklist
 

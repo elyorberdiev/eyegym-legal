@@ -14,7 +14,7 @@
   <h1>Privacy Policy</h1>
   <p class="meta">
     For the Eye Gymnastics mobile app (<code>com.indiehacker.eye_gymnastics</code>) on iOS and Android.<br>
-    Effective Date: <strong>August 15, 2026</strong> · Last Updated: <strong>August 15, 2026</strong>
+    Effective Date: <strong>August 15, 2026</strong> · Last Updated: <strong>August 25, 2026</strong>
   </p>
   <p class="nav-links"><a href="index.html">← Legal home</a><a href="terms.html">Terms of Use</a></p>
 </header>
@@ -64,9 +64,23 @@
       <td>To find and fix crashes.</td>
     </tr>
     <tr>
-      <td>Usage events: <code>exercise_started</code>, <code>exercise_completed</code>, <code>premium_purchased</code>, <code>review_requested</code>, plus the automatic events Firebase records such as first open, session start, and app update</td>
+      <td>Usage events, each carrying only the parameters listed here:
+        <ul>
+          <li><code>exercise_started</code>, <code>exercise_completed</code> — the exercise identifier and, on completion, how many seconds it lasted</li>
+          <li><code>onboarding_completed</code> — no parameters</li>
+          <li><code>paywall_viewed</code> — which screen the paywall was opened from</li>
+          <li><code>paywall_package_selected</code> — whether the weekly or annual plan was selected</li>
+          <li><code>trial_started</code>, <code>subscription_started</code> — the identifier of the purchased package</li>
+          <li><code>subscription_restored</code> — no parameters</li>
+          <li><code>streak_milestone</code> — the streak length reached</li>
+          <li><code>badge_unlocked</code> — the achievement identifier</li>
+          <li><code>reminder_scheduled</code> — how many daily reminders are set</li>
+          <li><code>timer_2020_started</code> — the length of the break-timer session in minutes</li>
+          <li><code>review_requested</code> — no parameters</li>
+        </ul>
+        plus the automatic events Firebase records such as first open, session start, and app update</td>
       <td>Firebase Analytics</td>
-      <td>To understand which exercises are actually used and where people get stuck, in aggregate.</td>
+      <td>To understand which exercises are actually used and where people get stuck, in aggregate. None of these events carry a name, an email address, or any other identifier you supply, because the App never asks for one.</td>
     </tr>
     <tr>
       <td>A randomly generated app instance identifier, device model, operating system version, coarse country or region derived from the IP address, and language</td>
@@ -89,7 +103,7 @@
 <p>These events do not contain the content of your practice history, and we do not attempt to re-identify anyone from them.</p>
 
 <h2>5. Subscriptions and Payments</h2>
-<p>Eye Gymnastics offers an optional auto-renewing subscription that unlocks additional exercises and routines.</p>
+<p>Every exercise in the App is free. Eye Gymnastics offers an optional auto-renewing subscription that unlocks the features built around the exercises — full practice history and statistics, guided programs, the screen-break timer, the home screen widget, unlimited reminders, and the complete achievement set. See <a href="terms.html">section 9 of the Terms of Use</a>.</p>
 <p>We <strong>never</strong> see or handle your card details. Payment is processed entirely by Apple or Google. We use <strong>RevenueCat, Inc.</strong> to verify purchases and tell the App whether your subscription is active. RevenueCat receives a random app user identifier it generates itself, the purchase receipt issued by the store, and basic device and country information.</p>
 <p>Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period, in your <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/account/subscriptions" target="_blank" rel="noopener">Google Play</a> subscription settings.</p>
 
