@@ -39,7 +39,8 @@ These documents describe what the app does today. If a feature changes, the corr
 | "exact alarms and start on boot" | `USE_EXACT_ALARM` and `RECEIVE_BOOT_COMPLETED` remain in the Android manifest. |
 | "premium is an auto-renewing subscription" | RevenueCat entitlements stay subscription-based (weekly + annual). A one-off or lifetime purchase would change Terms §9. |
 | "every exercise in the App is free" (Terms §9.1, Privacy §5) | No exercise ever carries `isPremium: true` in `lib/data/repositories/exercise_repository.dart`, and no route gates one. Gating any exercise requires rewriting Terms §9.1–9.2 and Privacy §5. |
-| The Premium feature list in Terms §9.2 | Matches the shipped entries in `lib/core/constants/premium_features.dart`. A feature advertised there but not built is a store violation — the paywall renders only `isAvailable: true` entries for this reason. |
+| The Premium feature list in Terms §9.2 and Privacy §5 | Matches the `isAvailable: true` entries in `lib/core/constants/premium_features.dart` — the same set the paywall renders. Flipping a flag to `true` means republishing both documents in the same change. A feature named in the Terms but not built is a store violation. |
+| "the last seven days of practice history" (Terms §9.1) | The free tier keeps showing 7 days once the statistics screen ships. Until then no history screen exists at all, which is narrower than promised, not wider. |
 | Photosensitivity warning | Keep it as long as the exercises use moving or flashing visuals. The guide is drawn with `CustomPainter` (`lib/features/exercise_player/widgets/`) and qualifies. |
 
 ## Publishing checklist
