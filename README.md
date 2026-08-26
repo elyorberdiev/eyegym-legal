@@ -40,7 +40,8 @@ These documents describe what the app does today. If a feature changes, the corr
 | "premium is an auto-renewing subscription" | RevenueCat entitlements stay subscription-based (weekly + annual). A one-off or lifetime purchase would change Terms §9. |
 | "every exercise in the App is free" (Terms §9.1, Privacy §5) | No exercise ever carries `isPremium: true` in `lib/data/repositories/exercise_repository.dart`, and no route gates one. Gating any exercise requires rewriting Terms §9.1–9.2 and Privacy §5. |
 | The Premium feature list in Terms §9.2 and Privacy §5 | Matches the `isAvailable: true` entries in `lib/core/constants/premium_features.dart` — the same set the paywall renders. Flipping a flag to `true` means republishing both documents in the same change. A feature named in the Terms but not built is a store violation. |
-| "the last seven days of practice history" (Terms §9.1) | The free tier keeps showing 7 days once the statistics screen ships. Until then no history screen exists at all, which is narrower than promised, not wider. |
+| "the last seven days of practice history" (Terms §9.1) | `StatsScreen.freeHistoryDays` stays at 7. Changing it means changing §9.1. |
+| "the first achievements" are free (Terms §9.1) | The `isFree: true` entries in `lib/features/stats/domain/achievement.dart`. |
 | Photosensitivity warning | Keep it as long as the exercises use moving or flashing visuals. The guide is drawn with `CustomPainter` (`lib/features/exercise_player/widgets/`) and qualifies. |
 
 ## Publishing checklist
