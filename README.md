@@ -1,6 +1,6 @@
 # Eye Gymnastics — Legal
 
-Privacy Policy and Terms of Use for **Eye Gymnastics** (`com.indiehacker.eye_gymnastics`), published by Fazogirapps.
+Privacy Policy and Terms of Use for **Eye Gymnastics** (`com.fazogirapps.eyegym`), published by Fazogirapps.
 
 Served via GitHub Pages:
 
