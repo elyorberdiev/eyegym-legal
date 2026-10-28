@@ -22,6 +22,14 @@ cp -R legal/. /tmp/eyegym-legal/
 cd /tmp/eyegym-legal && git add -A && git commit -m "Update legal documents" && git push
 ```
 
+Then refresh the copy on fazogirapps.com (`README.md` stays out — it would be served):
+
+```bash
+rsync -a --exclude README.md legal/ ../fazogirapps_site/public/eye-gymnastics/legal/
+```
+
+and deploy the site (see `../fazogirapps_site/README.md`).
+
 Bump the "Last Updated" date in the file header before publishing. GitHub Pages redeploys within a
 minute or two. For material changes, also update the effective date and give users notice in-app.
 
@@ -36,7 +44,7 @@ These documents describe what the app does today. If a feature changes, the corr
 | "Firebase Crashlytics and Analytics" | Both are actually shipped in the released build. Remove the rows if they are not. |
 | Analytics event list in Privacy §4 | Matches `lib/core/services/analytics_service.dart` exactly, including the parameters named per event. Update §4 in the same change that adds, renames, or removes an event. |
 | "does not request camera, microphone, photo library, location, or contacts" | No such permission is added to `AndroidManifest.xml` / `Info.plist`. |
-| "exact alarms and start on boot" | `USE_EXACT_ALARM` and `RECEIVE_BOOT_COMPLETED` remain in the Android manifest. |
+| "start on boot", and a reminder can arrive a few minutes late (Privacy §7) | `RECEIVE_BOOT_COMPLETED` stays in the Android manifest, no exact-alarm permission comes back (HANDOFF §3.33), and reminders stay on `inexactAllowWhileIdle`. |
 | "premium is an auto-renewing subscription" | RevenueCat entitlements stay subscription-based (weekly + annual). A one-off or lifetime purchase would change Terms §9. |
 | "every exercise in the App is free" (Terms §9.1, Privacy §5) | No exercise ever carries `isPremium: true` in `lib/data/repositories/exercise_repository.dart`, and no route gates one. Gating any exercise requires rewriting Terms §9.1–9.2 and Privacy §5. |
 | The Premium feature list in Terms §9.2 and Privacy §5 | Matches the `isAvailable: true` entries in `lib/core/constants/premium_features.dart` — the same set the paywall renders. Flipping a flag to `true` means republishing both documents in the same change. A feature named in the Terms but not built is a store violation. |
