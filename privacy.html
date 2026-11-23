@@ -14,7 +14,7 @@
   <h1>Privacy Policy</h1>
   <p class="meta">
     For the Eye Gymnastics mobile app (<code>com.fazogirapps.eyegym</code>) on iOS and Android.<br>
-    Effective Date: <strong>August 15, 2026</strong> · Last Updated: <strong>November 22, 2026</strong>
+    Effective Date: <strong>August 15, 2026</strong> · Last Updated: <strong>November 23, 2026</strong>
   </p>
   <p class="nav-links"><a href="index.html">← Legal home</a><a href="terms.html">Terms of Use</a></p>
 </header>
@@ -82,6 +82,9 @@
           <li><code>reminder_scheduled</code> — how many daily reminders are set</li>
           <li><code>reminder_enabled</code> — where reminders were switched on: the opening questionnaire, the reminder screen after a finished session, or settings</li>
           <li><code>timer_2020_started</code> — the length of the break-timer session in minutes</li>
+          <li><code>break_schedule_saved</code> — whether the break timer's work hours are on, how many days a week they cover and how many hours a day, how many minutes between reminders, and whether they make a sound; not the times themselves</li>
+          <li><code>break_paused_today</code> — no parameters</li>
+          <li><code>break_taken</code> — whether a 20-second break was opened from a reminder or from the app</li>
           <li><code>review_requested</code> — no parameters</li>
         </ul>
         plus the automatic events Firebase records such as first open, session start, and app update</td>
@@ -148,7 +151,8 @@
 <h2>7. Device Permissions</h2>
 <ul>
   <li><strong>Notifications</strong> — only to deliver the practice reminders you set up. Reminders are scheduled locally on your device; no push server is involved, and we send nothing to your phone ourselves.</li>
-  <li><strong>Start on boot</strong> (Android) — so that your reminders survive a restart. Reminders use Android's standard scheduling, so while the phone is asleep one can arrive a few minutes after the time you chose.</li>
+  <li><strong>Start on boot</strong> (Android) — so that your reminders survive a restart. The daily practice reminder uses Android's standard scheduling, so while the phone is asleep it can arrive a few minutes after the time you chose.</li>
+  <li><strong>Alarms &amp; reminders</strong> (Android, optional) — lets the 20-20-20 break reminders arrive at the minute you set instead of up to an hour late. Android asks you for it in a system screen, only if you use the break timer, and you can withdraw it there at any time; without it the reminders still arrive, just later. It is not used for anything else.</li>
   <li><strong>Vibration</strong> — for the haptic cues during an exercise, which you can switch off in Settings.</li>
 </ul>
 <p>The App does <strong>not</strong> request camera, microphone, photo library, location, or contacts access. You can withdraw notification permission at any time in your device settings; the rest of the App keeps working.</p>
